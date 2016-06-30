@@ -6,6 +6,15 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 
+/*
+ * Creada clase principal del Juego:
+ * -La clase extiende a Canvas
+ * -Añadir variariables para identificacion y configuracion
+ * -Añadir JFrame
+ * -Añadir Constructor:
+ * --Configurar dimensiones Canvas.
+ * --Crear JFrame y configurar(Layout,añadir Canvas,etc...)
+ */
 public class Juego extends Canvas {
 
 	private static final long serialVersionUID = 1L;
