@@ -119,3 +119,20 @@
  en /img
  Creamos Archivo gimp HojaSprites de 320x320 (10 filas y 10 columnas de 32x32px)
  Creamos Sprite asfalto 32x32
+ 
+ 
+ /*10 Clase Pantalla:
+ * -Creamos propiedades ancho y alto así como el array de pixeles[ancho * alto]
+ * 
+ * -Creamos Constructor:
+ * --inicializamos las propiedades
+ * 
+ * -Creamos metodo limpiar:
+ * --Pone a 0(negro) todo el array de pixeles
+ * 
+ * -Creamos metodo mostrar:
+ * --Recorremos todos los pixeles del ancho y del alto sumandole la compensacion(movimiento del teclado)
+ * --Comprobamos que el valor del pixel no esté fuera de la pantalla 
+ */
+ 
+ 
