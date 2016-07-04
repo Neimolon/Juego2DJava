@@ -75,3 +75,42 @@
  * -Creamos un bucle que recorra el tamaño de un sprite y fuarde todos sus pixeles en el array de pixeles
  * 
  * */
+ 
+ /* 8- Controles con el teclado
+ ***
+ * Creamos paquete control
+ * Creamos clase Teclado en el paquete control
+ * Implementamos KeyListener y sus métodos en Teclado(keyPressed,keyReleased,keyTyped)
+ * Teclado:
+ * -Creamos atributo numeroTeclas asignando el valor del codigo de caracter más alto a usar;
+ * -Creamos un array de booleanos con tantas posiciones como numeroTeclas haya
+ * -Creamos booleanos de los controles mas habituales(arriba,abajo,izquierda,derecha)
+ * 
+ * -Creamos metodo actualizar:
+ * --se asignan a los controles(arriba,abajo...) el valor de las teclas (si esta pulsado o no)
+ * 
+ * -en keyPressed():
+ * --obtenemos el valor de la tecla pulsada y lo marcamos a true en el array de booleanos en la posicion del codigo de la tecla pulsada
+ * 
+ * -en keyReleased():
+ * --obtenemos el valor de la tecla pulsada y lo marcamos a false en el array de booleanos en la posicion del codigo de la tecla pulsada
+ * 
+ * */
+ 
+ /*
+ * 8 Cotroles de Teclado (en clase Juego)
+ *** 
+ * Creamos una propiedad Teclado para implementar los controles del teclado
+ * 
+ * En el constructor:
+ * -inicializamos teclado
+ * -Añadimos un keylistener al canvas (Juego) y le pasamos la clase Teclado (que implementa keyListener)
+ * 
+ * En actualizar():
+ * -ejecutamos el método teclado.actualizar para actualizar el estado del teclado
+ * -Añadimos una escalera de ifs ver si hay algun cambio en las acciones del usuario
+ * 
+ * En run():
+ * -Fix: antes del bucle principal le decimos a la pantalla que tome el foco para que el usuario no tenga que clicar en ella
+ * 
+ */
