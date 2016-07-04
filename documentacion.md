@@ -114,3 +114,8 @@
  * -Fix: antes del bucle principal le decimos a la pantalla que tome el foco para que el usuario no tenga que clicar en ella
  * 
  */
+ 
+ 9 - Primer Sprite
+ en /img
+ Creamos Archivo gimp HojaSprites de 320x320 (10 filas y 10 columnas de 32x32px)
+ Creamos Sprite asfalto 32x32
