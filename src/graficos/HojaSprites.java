@@ -18,6 +18,7 @@ import javax.imageio.ImageIO;
 
 public class HojaSprites {
 	public final int ancho;
+
 	public final int alto;
 	public final int[] pixeles;
 
@@ -35,6 +36,10 @@ public class HojaSprites {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
+
+	public int obtenAncho() {
+		return this.ancho;
+	}
+
 }

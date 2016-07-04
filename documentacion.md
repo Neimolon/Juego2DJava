@@ -49,3 +49,29 @@
  * por cada vuelta de segundo se actualiza el titulo, mostrando FPS y APS
  * 
  */
+ 
+ /*6 Hoja de Sprites:
+ ***
+ * -Creamos el paquete graficos
+ * -Creamos la clase HojaSprites (que contendrá los recursos graficos)
+ * -creamos las propiedades int ancho, int alto y int[] pixeles
+ * -Creamos el constructor:
+ * --el constructor acepta los valores ruta,acho y alto de la imagen.
+ * --Creamos la variabe BufferedImage imagen
+ * --Leemos el sprite y lo cargamos en la variable imagen (valiendonos de la clase ImageIO y BufferedImage)  
+ * */
+ 
+ /*7 Extrayebdo los sprites;
+ *** 
+ * 
+ * Creamos la clase Sprite en el paquete graficos
+ * Creamos el atributo lado(tamaño sprite dentro de la joha de strites)
+ * Creamos los atributos x e y (guarda las posiciones del sprite en pixeles)
+ * Creamos el atributo hoja para tener accesible la Hoja de Sprites de la que extraer el sprite
+ * Creamos el array Pixeles para almacenar los pixeles extraidos
+ * 
+ * Creamos el constructos de Sprite:
+ * -Inicializamos las variables
+ * -Creamos un bucle que recorra el tamaño de un sprite y fuarde todos sus pixeles en el array de pixeles
+ * 
+ * */
