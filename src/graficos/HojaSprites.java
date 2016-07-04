@@ -5,22 +5,25 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-/*6 Hoja de Sprites:
+/*11 Gráfico en pantalla
  ***
- * -Creamos el paquete graficos
- * -Creamos la clase HojaSprites (que contendrá los recursos graficos)
- * -creamos las propiedades int ancho, int alto y int[] pixeles
- * -Creamos el constructor:
- * --el constructor acepta los valores ruta,acho y alto de la imagen.
- * --Creamos la variabe BufferedImage imagen
- * --Leemos el sprite y lo cargamos en la variable imagen (valiendonos de la clase ImageIO y BufferedImage)  
- * */
+ *Cambiamos el nombre del directorio de imágenes por recursos/texturas
+ *Incluimos el directorio en el Java Build Path
+ *
+ * *En HojaSprites:
+ *-Creamos la propiedad HojaSprites como estática y la inicializamos 
+ *
+ */
 
 public class HojaSprites {
 	public final int ancho;
 
 	public final int alto;
 	public final int[] pixeles;
+
+	// coleccion de hojas de sprites
+	public static HojaSprites desierto = new HojaSprites("/texturas/desierto.png", 320, 320);
+	// fin de la coleccion
 
 	public HojaSprites(final String ruta, final int ancho, final int alto) {
 		this.ancho = ancho;

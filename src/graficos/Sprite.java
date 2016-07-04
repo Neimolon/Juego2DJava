@@ -1,17 +1,11 @@
 package graficos;
 
-/*7 Extrayebdo los sprites;
+/*11 Gráfico en pantalla;
  *** 
  * 
- * Creamos la clase Sprite en el paquete graficos
- * Creamos el atributo lado(tamaño sprite dentro de la joha de strites)
- * Creamos los atributos x e y (guarda las posiciones del sprite en pixeles)
- * Creamos el atributo hoja para tener accesible la Hoja de Sprites de la que extraer el sprite
- * Creamos el array Pixeles para almacenar los pixeles extraidos
- * 
- * Creamos el constructos de Sprite:
- * -Inicializamos las variables
- * -Creamos un bucle que recorra el tamaño de un sprite y fuarde todos sus pixeles en el array de pixeles
+ *En Sprite:
+ *-Creamos la propiedad Sprite asfalto y la inicializamos 
+ *
  * 
  * */
 public final class Sprite {
@@ -19,6 +13,10 @@ public final class Sprite {
 	public int[] pixeles;
 
 	private final HojaSprites hoja;
+
+	/* Coleccion Sprites */
+	public static Sprite asfalto = new Sprite(32, 0, 0, HojaSprites.desierto);
+	/* Fin Coleccion */
 
 	private final int lado;
 	private final int x;

@@ -3,26 +3,40 @@ package juego;
 import java.awt.BorderLayout;
 import java.awt.Canvas;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
 
 import control.Teclado;
+import graficos.Pantalla;
 
 /*
- * 8 Cotroles de Teclado (en clase Juego)
- *** 
- * Creamos una propiedad Teclado para implementar los controles del teclado
+ * 11 Graficos en pantalla
+ ***
+ *en Juego:
+ * -creamos dos propiedades int "x" y la "y".
+ * -creamos propiedad Pantalla pantalla
+ * -creamos propiedad BufferedImage imagen y lo inicializamos
+ * -creamos int[]pixeles y lo cargamos con el contenido de imagen(despues de extraerlo con unos metodos esotericos):
+ * -->Explicaciones esotericas:
+ * --- imagen.getRaster() devuelve el raster que es la secuencia de pixels, .getDataBuffer devuelve un buffer con esa secuencia, hacemos un cast a DataBufferInt para porder llamar a getData() y obtener el array de pixeles;
  * 
- * En el constructor:
- * -inicializamos teclado
- * -Añadimos un keylistener al canvas (Juego) y le pasamos la clase Teclado (que implementa keyListener)
+ * en el constructor:
+ * -Inicializamos Pantalla pantalla
  * 
- * En actualizar():
- * -ejecutamos el método teclado.actualizar para actualizar el estado del teclado
- * -Añadimos una escalera de ifs ver si hay algun cambio en las acciones del usuario
- * 
- * En run():
- * -Fix: antes del bucle principal le decimos a la pantalla que tome el foco para que el usuario no tenga que clicar en ella
+ * en el metodo mostrar()
+ * -si no existe se crea una estrategia para pintar graficos en el canvas (un objeto BufferStrategy con 3 buffers,)
+ * -->Explicacion:Este objeto reserva espacio de memoria para 3 buffers que se cargaran desde la CPU antes de ser mostrados en la pantalla.
+ * -se limpia el array de pixeles del objeto pantalla y se deja en negro
+ * -se carga el array de pixeles del objeto pantalla 
+ * -se copia el array de pixels del objeto pantalla al array de pixeles del objeto juego
+ * -obtenemos un objeto graphics a traves del objeto estrategia
+ * -cargamos la imagen en el objeto estrategia a través de objeto graphics.drawImage()
+ * -una vez cargada la imagen la liberamos del objeto graphics con dispose()
+ * -se imprime el buffer en el canvas con estrategia.show();
  * 
  */
 public class Juego extends Canvas implements Runnable {
@@ -37,12 +51,20 @@ public class Juego extends Canvas implements Runnable {
 	private static JFrame ventana;
 	private static Thread thread;
 	private static Teclado teclado;
+	private static Pantalla pantalla;
+
+	private static BufferedImage imagen = new BufferedImage(ANCHO, ALTO, BufferedImage.TYPE_INT_RGB);
+	private static int[] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
 
 	public static int aps = 0;
 	private static int fps = 0;
+	public static int x = 0;
+	public static int y = 0;
 
 	private Juego() {
 		setPreferredSize(new Dimension(ANCHO, ALTO));
+
+		pantalla = new Pantalla(ANCHO, ALTO);
 
 		teclado = new Teclado();
 		addKeyListener(teclado);
@@ -99,6 +121,25 @@ public class Juego extends Canvas implements Runnable {
 	}
 
 	private void mostrar() {
+		BufferStrategy estrategia = getBufferStrategy();
+
+		if (estrategia == null) {
+			createBufferStrategy(3);
+			return;
+		}
+
+		pantalla.limpiar();
+		pantalla.mostrar(Juego.x, Juego.y);
+
+		System.arraycopy(pantalla.pixeles, 0, this.pixeles, 0, this.pixeles.length);
+
+		Graphics g = estrategia.getDrawGraphics();
+
+		g.drawImage(imagen, 0, 0, getWidth(), getHeight(), null);
+		g.dispose();
+
+		estrategia.show();
+
 		this.fps++;
 	}
 
