@@ -1,4 +1,3 @@
-/*Prueba commit desde Netbeans*/
 package juego;
 
 import java.awt.BorderLayout;
