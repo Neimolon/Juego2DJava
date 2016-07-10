@@ -249,3 +249,20 @@ creamos metodo mostrar(se le pasan las posiciones y un objeto pantalla)
 creamos el metodo solido(nos dice si el cuadro se puede atravesar por el personaje)
 
 */ 
+
+/* 17 Creacion de tiles
+Creamos la clase CuadroAsfalto: -> que extiende la clase Cuadro y a la que se le pasa el sprite correspondiente a lo que se quiera dibujar
+
+-Creamos el constructor CuadroAsfalto(sprite):
+--se inicializa el sprite del padre
+
+-creamos el metodo mostrar(x,y,pantalla)
+
+*/
+
+/* 17 Coleccion de Tiles (tiles de los cuadros que conformarán el mapa) - En clase Cuadro
+***
+Añadimos un espacio para la coleccion de cuadros
+Creamos la propiedad estatica Cuadro con una instancia de CuadroAlfalto (cuadro es abstracto y no se puede instanciar)
+
+*/

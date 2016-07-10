@@ -1,17 +1,9 @@
 package mapa.cuadro;
 
-/*16 Creamos la clase abstracta Cuadro:
- ***
-
-Creamos las propiedades de posicion int x e y, y la propiedad sprite
-
-Creamos el constructor:
--Inicializamos x e y
--Inicializamos el sprite
-
-creamos metodo mostrar(se le pasan las posiciones y un objeto pantalla)
-
-creamos el metodo solido(nos dice si el cuadro se puede atravesar por el personaje)
+/* 17 Coleccion de Tiles (tiles de los cuadros que conformarán el mapa)
+***
+Añadimos un espacio para la coleccion de cuadros
+Creamos la propiedad estatica Cuadro con una instancia de CuadroAlfalto (cuadro es abstracto y no se puede instanciar)
 
 */
 import graficos.Pantalla;
@@ -22,6 +14,11 @@ public abstract class Cuadro {
     public int y;
     
     public Sprite sprite;
+    
+    /*Coleccion cuadros*/
+    public static final Cuadro ASFALTO = new CuadroAsfalto(Sprite.ASFALTO);
+    
+    /*fin coleccion cuadros*/
     
     public Cuadro(Sprite sprite){
         this.sprite = sprite;
