@@ -1,6 +1,6 @@
 package mapa.cuadro;
 
-/*Creamos la clase abstracta Cuadro:
+/*16 Creamos la clase abstracta Cuadro:
  ***
 
 Creamos las propiedades de posicion int x e y, y la propiedad sprite
