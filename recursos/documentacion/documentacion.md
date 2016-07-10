@@ -235,4 +235,17 @@
  * -creamos los metodos generarMapa(),generarMapa(ruta),mostrar(), actualzar();
  */
 
- 
+/*Creamos la clase abstracta Cuadro:
+ ***
+
+Creamos las propiedades de posicion int x e y, y la propiedad sprite
+
+Creamos el constructor:
+-Inicializamos x e y
+-Inicializamos el sprite
+
+creamos metodo mostrar(se le pasan las posiciones y un objeto pantalla)
+
+creamos el metodo solido(nos dice si el cuadro se puede atravesar por el personaje)
+
+*/ 
