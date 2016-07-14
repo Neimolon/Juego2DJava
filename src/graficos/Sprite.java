@@ -10,33 +10,38 @@ package graficos;
  * */
 public final class Sprite {
 
-	public int[] pixeles;
+    public int[] pixeles;
 
-	private final HojaSprites hoja;
+    private final HojaSprites hoja;
 
-	/* Coleccion Sprites */
-	public static final Sprite ASFALTO = new Sprite(32, 0, 0, HojaSprites.desierto);
-	/* Fin Coleccion */
+    /* Coleccion Sprites */
+    public static final Sprite ASFALTO = new Sprite(32, 0, 0, HojaSprites.desierto);
+    /* Fin Coleccion */
 
-	private final int lado;
-	private final int x;
-	private final int y;
+    private final int lado;
 
-	public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja) {
-		this.hoja = hoja;
-		this.lado = lado;
+    private final int x;
+    private final int y;
 
-		pixeles = new int[lado * lado];
+    public Sprite(final int lado, final int columna, final int fila, final HojaSprites hoja) {
+        this.hoja = hoja;
+        this.lado = lado;
 
-		this.x = columna * lado;
-		this.y = fila * lado;
+        pixeles = new int[lado * lado];
 
-		for (int y = 0; y < lado; y++) {
-			for (int x = 0; x < lado; x++) {
-				pixeles[x + y * lado] = hoja.pixeles[(x + this.x) + (y + this.y) * hoja.obtenAncho()];
-			}
-		}
+        this.x = columna * lado;
+        this.y = fila * lado;
 
-	}
+        for (int y = 0; y < lado; y++) {
+            for (int x = 0; x < lado; x++) {
+                pixeles[x + y * lado] = hoja.pixeles[(x + this.x) + (y + this.y) * hoja.obtenAncho()];
+            }
+        }
+
+    }
+    
+    public int obtenLado() {
+        return lado;
+    }
 
 }

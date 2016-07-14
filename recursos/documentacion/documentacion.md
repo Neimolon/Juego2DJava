@@ -266,3 +266,26 @@ Añadimos un espacio para la coleccion de cuadros
 Creamos la propiedad estatica Cuadro con una instancia de CuadroAlfalto (cuadro es abstracto y no se puede instanciar)
 
 */
+
+
+
+/*18 Mostrar Tiles:
+***
+En Pantalla:
+Explicaciones: mostrar actualmente está para comprobar que se muestren las imagenes correctamente, proximamente la 
+idea será que los cuadros se dibujen a si mismos llamando el metodo pantalla.mostrar desde su propio metodo mostrar
+
+creamos funcion mostrarCuadro(compensacionX,compensacionY,cuadro) -> La que reemplazara la funcion mostrar
+-creamos un doble bucle con el largo de las dimensiones del cuadro
+-calculamos los valores x e y mas su compensacion para conseguir el movimiento
+-hacemos la comprobacion de que no se dibuje fuera de la pantalla
+-copiamos los pixeles del cuadro a la pantalla
+ */
+
+/* 18 Mostrar tiles
+***
+En CuadroAsfalto:
+(este metodo está pensado para los cuadros estaticos, los que conformarían el fondo del mapa)
+en el metodo heredado mostrar(x,y,pantalla):
+    llama al metodo mostrar de pantalla pasando this para que los pixeles del sprite de este cuadro se copien a la pantalla
+*/

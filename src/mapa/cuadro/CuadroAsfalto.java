@@ -1,12 +1,9 @@
 package mapa.cuadro;
-/* 17 Creacion de tiles
-Creamos la clase CuadroAsfalto: -> que extiende la clase Cuadro y a la que se le pasa el sprite correspondiente a lo que se quiera dibujar
+/* 18 Mostrar tiles
 
--Creamos el constructor CuadroAsfalto(sprite):
---se inicializa el sprite del padre
-
--creamos el metodo mostrar(x,y,pantalla)
-
+    (este metodo está pensado para los cuadros estaticos, los que conformarían el fondo del mapa)
+    en el metodo heredado mostrar(x,y,pantalla):
+        llama al metodo mostrar de pantalla pasando this para que los pixeles del sprite de este cuadro se copien a la pantalla
 */
 import graficos.Pantalla;
 import graficos.Sprite;
@@ -18,7 +15,7 @@ public class CuadroAsfalto extends Cuadro{
     }
 
     public void mostrar(int x,int y, Pantalla pantalla){
-    
+        pantalla.mostrarCuadro(x, y, this);
     }    
 
     
