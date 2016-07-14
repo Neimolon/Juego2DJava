@@ -2,31 +2,20 @@ package mapa;
 
 import graficos.Pantalla;
 
-/**
- * 15 Introduccion a a los mapas
+/*
+19 Generar mapas al azar 
  ***
- * 
- * Creamos la clase abstracta Mapa:
- *
- * -creamos las propiedades int alto y ancho y un array int cuadros[]
- * -reamos dos constructores:
- * 
- * --Mapa(ancho,alto) -> Para cuando vallamos a generar nosotros el mapa automaticamente
- * ---Inicializamos alto,ancho y el array mapa
- * ---Llamamos al metodo generarMapa();
- * 
- * --Mapa(String ruta)->Se llamará cuando carguemos un mapa previamente  creado en una ruta
- * ---Inicializamos alto,ancho y el array mapa
- * ---Llamamos al metodo generarMapa(ruta);
- * 
- * -creamos los metodos generarMapa(),generarMapa(ruta),mostrar(), actualzar();
- */
+en Mapa:
+
+Cambiamos a protected las propiedades alto,ancho y cuadros para que estén en el alcance de las clases heredadas
+Cambiamos a protected el metodo generarMapa para que estén en el alcance de las clases heredadas
+*/
 
 public abstract class Mapa {
-    private int alto;
-    private int ancho;
+    protected int alto;
+    protected int ancho;
     
-    private int[] cuadros;
+    protected int[] cuadros;
     
     public Mapa(int ancho,int alto){
         this.ancho = ancho;
@@ -43,7 +32,7 @@ public abstract class Mapa {
 
     }
 
-    private void generarMapa(){
+    protected void generarMapa(){
     
     }
     

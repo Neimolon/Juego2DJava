@@ -280,12 +280,32 @@ creamos funcion mostrarCuadro(compensacionX,compensacionY,cuadro) -> La que reem
 -calculamos los valores x e y mas su compensacion para conseguir el movimiento
 -hacemos la comprobacion de que no se dibuje fuera de la pantalla
 -copiamos los pixeles del cuadro a la pantalla
- */
 
-/* 18 Mostrar tiles
-***
+
 En CuadroAsfalto:
 (este metodo está pensado para los cuadros estaticos, los que conformarían el fondo del mapa)
 en el metodo heredado mostrar(x,y,pantalla):
     llama al metodo mostrar de pantalla pasando this para que los pixeles del sprite de este cuadro se copien a la pantalla
+*/
+
+
+/*
+19 Generar mapas al azar 
+ ***
+en Mapa:
+
+Cambiamos a protected las propiedades alto,ancho y cuadros para que estén en el alcance de las clases heredadas
+Cambiamos a protected el metodo generarMapa para que estén en el alcance de las clases heredadas
+
+En MapaGenerado:
+Creamos la clase MapaGenerado extendiendo Mapa:
+creamos la propiedad Random aleatorio y e instanciamos el objeto
+-sobreescribimos el constructor MapaGenerado(alto,ancho) 
+--inicializando las propiedades en el padre
+
+-creamos el metodo generarMapa:
+--for anidado que recorre el ancho y el alto 
+--asignamos un valor aleatorio entre 1 y 3 en cada cuadro del array de cuadros del mapa (asignaremos a cada cuadro que tengamos un identificador correspondiente a estos numeros)
+
+ 
 */
