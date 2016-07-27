@@ -25,10 +25,11 @@ public abstract class Cuadro {
         this.sprite = sprite;
         
     }
-
-    public void mostrar(int x,int y, Pantalla pantalla){
-        pantalla.mostrarCuadro(x << 5, y << 5, this);
-    }  
+    
+    public void mostrar(int x, int y, Pantalla pantalla){
+    
+    }
+    
     public boolean solido(){
         return false;
     }
