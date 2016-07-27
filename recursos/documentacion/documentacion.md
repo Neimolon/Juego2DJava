@@ -350,4 +350,56 @@ en Sprite:
 
 -Añadimos la propiedad Sprite vacio a la coleccion de sprites y lo inicializamos con el nuevo contructor
 
+23 - Graficos Mejorados
+
+Vamos a encadenar el codigo desarrollado para generar los mapas en vez de mostrar el sprite de Asfalto:
+
+en Pantalla:
+***
+-Borramos el codigo marcado como temporal( metodo mostrar() y constantes mascara y lado sprite)
+-creamos propiedades diferenciaX e diferenciaY (controlar movimiento del personaje para dibujar solo los sprites correspondientes a la pantalla y no todo el mapa)
+-creamos metodo setter estableceDiferencia(x,y) que setea las variables del objeto
+
+-en metodo mostrarCuadro(compensacionX,compensacionY,pantalla):
+--restamos a compensacionX y a compensacionY la diferenciaX e diferenciaY 
+
+en Mapa:
+***
+-en metodo mostrar(compensacionX,compensacionY,pantalla):
+--añadimos un for anidado que recorre los cuadrados(32px) de este a oeste y de norte a sur, dentro del for se obtiene el cuadro que se 
+  debe mostrar y se llama al metodo mostrar del cuadro para que se imprima en la posicion que corresponde
+--añadimos una llamada al metodo pantalla.establecerDiferencia(x,y) para que cada vez que el juego muestre el mapa, el mapa le diga a la pantalla cuanto ha de desplazarse
+
+
+en CuadroAsfalto y CuadroVacío
+***
+--quitamos el metodo mostrar (y lo vamos a mover a la clase padre, ya que será similar para todos los descendientes)
+
+en Cuadro:
+***
+--añadimos el metodo mostrar:
+---se llama al metodo pantalla.mostrar(x << 5,y<<5,this)
+---* es el metodo tal cual lo tenia en las clases descendientes, con un bitshiftin de 5 bits a la izquierda (x32),
+     para corregir el bitshifting que se hacia en mapa para calcular el salto de cuadros
+
+en MapaGenerado:
+***
+-cambiamos la propiedad aleatorio a estatica
+*Se genera un crash si no
+
+en Juego:
+***
+-añadimos la propiedad mapa Mapa
+
+-en el constructor:
+--inicializamos el objeto mapa con new MapaGenerado(128,128) (128 tiles, no pixeles)
+
+-en metodo mostrar():
+--borramos la llamada al metodo temporal que borramos pantalla.mostrar(x,y) (borrar codigo temporal)
+--llamamos el metodo mapa.mostrar()
+
+--en actualizar:
+---cambiamos el incremeto de cuando se pulsa arriba/abajo/izda/derecha para corregir que no se mueva invertido
+
+
 
