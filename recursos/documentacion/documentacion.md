@@ -306,6 +306,22 @@ creamos la propiedad Random aleatorio y e instanciamos el objeto
 -creamos el metodo generarMapa:
 --for anidado que recorre el ancho y el alto 
 --asignamos un valor aleatorio entre 1 y 3 en cada cuadro del array de cuadros del mapa (asignaremos a cada cuadro que tengamos un identificador correspondiente a estos numeros)
-
  
+*/
+
+
+20 Lados del mapa
+
+en Mapa:
+***
+en metodo mostrar:
+-creamos las variables n,s,e,o para fijar los limites del mapa
+
+en Pantalla:
+***
+Creamos getter para ancho y alto
+
+
+
+
 */

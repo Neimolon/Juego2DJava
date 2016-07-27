@@ -3,12 +3,13 @@ package mapa;
 import graficos.Pantalla;
 
 /*
-19 Generar mapas al azar 
+20 Lados del mapa
  ***
 en Mapa:
+-en metodo mostrar:
+--creamos las variables n,s,e,o para fijar los limites del mapa
 
-Cambiamos a protected las propiedades alto,ancho y cuadros para que estén en el alcance de las clases heredadas
-Cambiamos a protected el metodo generarMapa para que estén en el alcance de las clases heredadas
+
 */
 
 public abstract class Mapa {
@@ -46,7 +47,10 @@ public abstract class Mapa {
     }
     
     public void mostrar(int compensacionX,int compensacionY, Pantalla pantalla ){
-    
+        int o = compensacionX >> 5;  //BitShifting de 5 bits, equivale a dividir por 32
+        int e = (compensacionX + pantalla.obtenAncho()) >> 5;
+        int n = compensacionY >> 5;
+        int s = (compensacionY + pantalla.obtenAlto()) >> 5;
     }
     
 }
