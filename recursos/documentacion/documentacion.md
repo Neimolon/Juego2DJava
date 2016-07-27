@@ -321,6 +321,9 @@ en Pantalla:
 ***
 Creamos getter para ancho y alto
 
+21 - Explicaciones de BitShifting
+
+
 
 
 
