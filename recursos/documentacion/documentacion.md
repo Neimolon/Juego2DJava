@@ -323,8 +323,31 @@ Creamos getter para ancho y alto
 
 21 - Explicaciones de BitShifting
 
+22 - Asignacion de Tiles
+Crearemos un mecanismo que permita obtener los diferentes tiles(cuadros) que componen el mapa, ya que ahora mismo solo se esta imprimiendo el cuadro de Asfalto
+
+En Mapa(que es abstracta):
+-creamos la funcion obtenCuadro(x,y):
+--escribimos un switch que mira el valor que hay en el array de cuadros del mapa para una posicion dada y devuelve el cuadro correspondiente al valor de la posicion
+
+Como solo existe el cuadro de asfalto necesitaremos crear nuevos tiles(cuadros), en este caso el cuadro vacío que delimitrá el mapa.
+
+En Cuadro:
+-Añadimos a la coleccion de cuadros el CuadroVacio
+
+Creamos la clase CuadroVacio que extiende Cuadro:
+*habra que evitar la redundancia de escribir el mismo codigo en todas las clases que conforman la coleccion de cuadros (para mas adelante)
+-se crea el constructor que inicializa el sprite del padre
+-se crea el metodo mostrar() que imprime el cuadro en la pantalla
+
+La clase cuadroVacío necesitará un sprite 
+
+en Sprite:
+-Añadimos un nuevo constructor(lado,color):(para colores, ya que estos cuadros del borde no nos interesa sacarlos de la hoja de texturas, sino)
+--iniciamos lado
+--iniciamos pixeles
+--bucle for que recorra los pixeles y les asigne el valor del color correspondiente
+
+-Añadimos la propiedad Sprite vacio a la coleccion de sprites y lo inicializamos con el nuevo contructor
 
 
-
-
-*/
