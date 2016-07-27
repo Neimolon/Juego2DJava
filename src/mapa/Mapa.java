@@ -50,23 +50,30 @@ public abstract class Mapa {
     }
     
     public void mostrar(final int compensacionX, final int compensacionY, final Pantalla pantalla ){
+        
+        pantalla.estableceDiferencia(compensacionX, compensacionY);
+        
         int o = compensacionX >> 5;  //BitShifting de 5 bits, equivale a dividir por 32
         int e = (compensacionX + pantalla.obtenAncho()) >> 5;
         int n = compensacionY >> 5;
         int s = (compensacionY + pantalla.obtenAlto()) >> 5;
+                
+        for(int y = n; y < s; y++){
+            for(int x = o; x < e; x++){
+                this.obtenCuadro(x, y).mostrar(x, y, pantalla);
+            }
+        }
     }
     
     public Cuadro obtenCuadro(final int x, final int y){
-        
-        
-        switch(this.cuadros[x + y * this.ancho]){
+       switch(this.cuadros[x + y * this.ancho]){
             case 0:
                 return Cuadro.ASFALTO;
             case 1:
             case 2:
             case 3:
             default:
-                return null;
+                return Cuadro.VACIO;
         }
     }
     
