@@ -14,77 +14,10 @@ import javax.swing.JFrame;
 
 import control.Teclado;
 import graficos.Pantalla;
+import mapa.Mapa;
+import mapa.MapaGenerado;
 
-/*11 Gráfico en pantalla - CAPITULO IMPORTANTE (Explicacion de como pintar pintar imagenes en un canvas a traves de un buffer )
-***
-*Cambiamos el nombre del directorio de imágenes por recursos/texturas
-*Incluimos el directorio en el Java Build Path
-*
-* *En HojaSprites:
-*-Creamos la propiedad HojaSprites como estática y la inicializamos 
-*
-* 
-*En Sprite:
-*-Creamos la propiedad Sprite asfalto y la inicializamos 
-*
-* 
-* REMEMBER:Ojito al escribir los putos signos de comparacion! 1h de debug por un > cambiado!!!!!!
-*
-*Solo temporalmente:
-*-Creamos variables lado_sprite y máscara sprite
-*
-*-en mostrar:
-*--asignamos al array de pixeles de la pantalla los pixeles del Sprite que nos interesa de la siguiente forma:
-*---pixeles[posicionX + posicionY * this.ancho] = Sprite.asfalto.pixeles[(x & MASCARA_SPRITE) + (y & MASCARA_SPRITE) * LADO_SPRITE];
-*
-*--->Explicamos porque es interesante:
-*---MASCARA_SPRITE tiene el el valor (tamaño del sprite(LADO_SPRITE) - 1)
-*---(posicionX + posicionY * this.ancho)  y  ((x & MASCARA_SPRITE) + (y & MASCARA_SPRITE) * LADO_SPRITE) es equivalente
-*---   MASCARA_SPRITE  -> int pix 31 ->     011111 en binario
-*---   x o y en bucle  ->         32 ->  &  100000 en binario (valor en el que se superaría el rango de posiciones en el array)
-*---                                     =  000000 -> despues de recorrer 32 valores (0 a 31), el bucle vuelve a la posicion inicial
-*                                                     sin que tengamos que hacer ifs o sumas, se aumenta el rendimiento.
-*
-*en Juego:
-* -creamos dos propiedades int "x" y la "y".
-* -creamos propiedad Pantalla pantalla
-* -creamos propiedad BufferedImage imagen y lo inicializamos
-* -creamos int[]pixeles y lo cargamos con el contenido de imagen(despues de extraerlo con unos metodos esotericos):
-* -->Explicaciones esotericas:
-* --- imagen.getRaster() devuelve el raster que es la secuencia de pixels, .getDataBuffer devuelve un buffer con esa secuencia, hacemos un cast a DataBufferInt para porder llamar a getData() y obtener el array de pixeles;
-* 
-* en el constructor:
-* -Inicializamos Pantalla pantalla
-* 
-* en el metodo mostrar()
-* -si no existe se crea una estrategia para pintar graficos en el canvas (un objeto BufferStrategy con 3 buffers,)
-* -->Explicacion:Este objeto reserva espacio de memoria para 3 buffers que se cargaran desde la CPU antes de ser mostrados en la pantalla.
-* -se limpia el array de pixeles del objeto pantalla y se deja en negro
-* -se carga el array de pixeles del objeto pantalla 
-* -se copia el array de pixels del objeto pantalla al array de pixeles del objeto juego
-* -obtenemos un objeto graphics a traves del objeto estrategia
-* -cargamos la imagen en el objeto estrategia a través de objeto graphics.drawImage()
-* -una vez cargada la imagen la liberamos del objeto graphics con dispose()
-* -se imprime el buffer en el canvas con estrategia.show();
-* 
-* en el método actualizar();
-* -en los ifs que detectan las pulsaciones de teclado incrementamos o decremantamos las variables x e y dependiendo de la accion detectada.
-* ->Explicacion:
-* --al cambiar estos valor se cambia en cada actualizacion del juego los parametros de compensacion que recibe el método mostrar(CompensacionX,compensacionY) 
-* --del objeto pantalla, produciendo un offset en las posiciones del array de pixeles de la pantalla en donde son copiados los pixeles recibidos
-* --desde el sprite que estamos imprimiendo. De esta forma se despla la posicion donde se empieza a imprimir nuestro dondo dando sensacion
-* --de que el centro se está moviendo 
-*/
 
-/*
- * 13 Icono de la ventana
- ***
- * en Juego:
- * creamos la propiedad icono de la clase ImageIcon y la cargamos desde la libreria de imagenes
- * 
- *  en el Constructor:
- *  -llamamos al JFrame y le decimos setImageIcon(icono);
- */
 public class Juego extends Canvas implements Runnable {
 
 	private static final long serialVersionUID = 1L;
@@ -98,6 +31,7 @@ public class Juego extends Canvas implements Runnable {
 	private static Thread thread;
 	private static Teclado teclado;
 	private static Pantalla pantalla;
+        private static Mapa mapa;
 
 	private static BufferedImage imagen = new BufferedImage(ANCHO, ALTO, BufferedImage.TYPE_INT_RGB);
 	private static int[] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
@@ -112,6 +46,8 @@ public class Juego extends Canvas implements Runnable {
 		setPreferredSize(new Dimension(ANCHO, ALTO));
 
 		pantalla = new Pantalla(ANCHO, ALTO);
+                
+                mapa = new MapaGenerado(128, 128);
 
 		teclado = new Teclado();
 		addKeyListener(teclado);
@@ -153,16 +89,16 @@ public class Juego extends Canvas implements Runnable {
 		this.teclado.actualizar();
 
 		if (teclado.arriba) {
-			y++;
-		}
-		if (teclado.abajo) {
 			y--;
 		}
+		if (teclado.abajo) {
+			y++;
+		}
 		if (teclado.izquierda) {
-			x++;
+			x--;
 		}
 		if (teclado.derecha) {
-			x--;
+			x++;
 		}
 
 		this.aps++;
@@ -177,7 +113,8 @@ public class Juego extends Canvas implements Runnable {
 		}
 
 		pantalla.limpiar();
-		pantalla.mostrar(Juego.x, Juego.y);
+                mapa.mostrar(this.x, this.y, pantalla);
+
 
 		System.arraycopy(pantalla.pixeles, 0, this.pixeles, 0, this.pixeles.length);
 
