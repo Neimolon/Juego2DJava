@@ -23,7 +23,7 @@ import java.util.Random;
  * @author diego
  */
 public class MapaGenerado extends Mapa{
-    private final static Random aleatorio = new Random();
+    private final Random aleatorio = new Random();
     
     public MapaGenerado(int ancho, int alto) {
         super(ancho, alto);

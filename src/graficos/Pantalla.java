@@ -11,11 +11,15 @@ en Pantalla:
 public final class Pantalla {
 
     public final int[] pixeles;
+
+    // Temporal
+    private final static int LADO_SPRITE = 32;
+    private final static int MASCARA_SPRITE = LADO_SPRITE - 1;
+    // Fin Temporal
+
     private final int ancho;
+
     private final int alto;
-    
-    private int diferenciaX;
-    private int diferenciaY;
 
     public Pantalla(final int ancho, final int alto) {
         this.ancho = ancho;
@@ -31,11 +35,28 @@ public final class Pantalla {
         }
     }
 
+    /* Temporal */
+    public void mostrar(final int compensacionX, final int compensacionY) {
+        for (int y = 0; y < this.alto; y++) {
+            int posicionY = y + compensacionY;
+            if (posicionY < 0 || posicionY >= this.alto) {
+                continue;
+            }
+
+            for (int x = 0; x < this.ancho; x++) {
+                int posicionX = x + compensacionX;
+                if (posicionX < 0 || posicionX >= this.ancho) {
+                    continue;
+                }
+                // temporal
+                pixeles[posicionX + posicionY * ancho] = Sprite.ASFALTO.pixeles[(x & MASCARA_SPRITE)
+                        + (y & MASCARA_SPRITE) * LADO_SPRITE];
+            }
+        }
+    }
+
     public void mostrarCuadro(int compensacionX, int compensacionY, Cuadro cuadro) {
-        
-        compensacionX -= this.diferenciaX;
-        compensacionY -= this.diferenciaY;
-        
+
         for (int y = 0; y < cuadro.sprite.obtenLado(); y++) {
 
             int posicionY = y + compensacionY;
@@ -46,13 +67,9 @@ public final class Pantalla {
                     break;
                 }
 
-                pixeles[posicionX + posicionY * this.ancho] = cuadro.sprite.pixeles[x + y + cuadro.sprite.obtenLado()];
+                pixeles[posicionX + posicionY * ancho] = cuadro.sprite.pixeles[x + y + cuadro.sprite.obtenLado()];
             }
         }
-    }
-    public void estableceDiferencia(final int diferenciaX, final int diferenciaY){
-        this.diferenciaX = diferenciaX;
-        this.diferenciaY = diferenciaY;
     }
     
     public int obtenAncho() {
