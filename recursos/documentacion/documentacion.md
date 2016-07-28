@@ -403,3 +403,26 @@ en Juego:
 
 
 
+24 - Eliminando Bugs:
+***
+Eliminar bug IndexOutofBounds cuando nos salimos del mapa
+
+En Mapa:
+-en obtenerCuadro(): 
+--metemos un if que compruebe si la posicion donde se empieza a dibujar el mapa
+  se sale de los cuadros que tiene el mapa y si lo hace devolvemos un cuadro vacío
+
+Hacer que se pinten los cuadrados de los margenes pese a que aún no tienen el margen igual al tamaño del cuadrado
+
+Para las posiciones superior e izquierda
+En Pantalla:
+-en dibujarCuadro():
+--En el if que impide dibujar si la posicion de la pantalla es menor que cero, 
+  decirle que permita dibujar si el origen de la pantalla es hasta el tamaño de un cuadro por la izquierda
+--Si la posicion X es negativa la forzamos a 0
+
+Para las posiciones sur y este
+en Mapa:
+-en metodo mostrar:
+--donde se asigna la posicion final (sur y este) le sumamos el tamaño de un cuadro
+

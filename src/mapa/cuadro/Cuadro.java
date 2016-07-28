@@ -10,8 +10,11 @@ import graficos.Pantalla;
 import graficos.Sprite;
 
 public abstract class Cuadro {
+    public static int LADO = 32;
+    
     public int x;
     public int y;
+    
     
     public Sprite sprite;
     
