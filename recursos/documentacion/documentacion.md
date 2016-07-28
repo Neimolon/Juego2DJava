@@ -426,3 +426,30 @@ en Mapa:
 -en metodo mostrar:
 --donde se asigna la posicion final (sur y este) le sumamos el tamaño de un cuadro
 
+25 - Ventana sin bordes
+
+Quitar bordes ventana
+
+En juego:
+-en constructor:
+--ventana.setUndecorated(true);
+
+Ahora no podemos cerrar ni tenemos la barra de titulo con los FPS y APS
+
+En Teclado: Añadimos el control para la tecla escape
+-Añadimos la propiedad salir
+-en actualizar:propiedad salir a true si se pulsa la tecla escape
+
+En Juego:
+-en actualizar:
+--si salir = true. System.exit(0) 
+
+Mostrar los FPS y APS
+
+En Juego:
+creamos las propiedades String contadorAPS y FPS
+-en run():
+--dentro del gameloop en el if que calcula es paso de un segudo asignamos el valor a las nuevas propiedades
+-en mostrar():
+--graphics.drawString(FPS y APS,x,y);
+

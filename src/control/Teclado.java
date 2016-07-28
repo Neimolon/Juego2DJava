@@ -31,12 +31,16 @@ public final class Teclado implements KeyListener {
 	public boolean abajo;
 	public boolean izquierda;
 	public boolean derecha;
+        
+        public boolean salir;
 
 	public void actualizar() {
 		this.arriba = teclas[KeyEvent.VK_W];
 		this.abajo = teclas[KeyEvent.VK_S];
 		this.izquierda = teclas[KeyEvent.VK_A];
 		this.derecha = teclas[KeyEvent.VK_D];
+                this.salir = teclas[KeyEvent.VK_ESCAPE];
+                
 	}
 
 	@Override
