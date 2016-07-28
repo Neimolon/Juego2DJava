@@ -46,7 +46,8 @@ public final class Pantalla {
                     break;
                 }
 
-                pixeles[posicionX + posicionY * this.ancho] = cuadro.sprite.pixeles[x + y + cuadro.sprite.obtenLado()];
+                pixeles[posicionX + posicionY * this.ancho] = cuadro.sprite.pixeles[x + y * cuadro.sprite.obtenLado()];
+                
             }
         }
     }
