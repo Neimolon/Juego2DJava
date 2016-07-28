@@ -1,4 +1,4 @@
-//test -- Ignorar
+//Mas pruebas github
 package juego;
 
 import java.awt.BorderLayout;
