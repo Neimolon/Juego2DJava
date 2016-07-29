@@ -457,3 +457,7 @@ creamos las propiedades String contadorAPS y FPS
 27 -Creacion de Sprites en PhotoShop II
 28 -Crear mapa como referencia 
 --Buscar sprites en alguna web en mi caso, pa
+
+29 Traducir el mapa a píxeles 
+-Asignamos a cada sprite un color, que hará de id
+-Creamos una imagen de tantos pixeles como sprites tiene el mapa y traducimos esos sprites a colores
