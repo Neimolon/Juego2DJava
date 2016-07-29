@@ -453,3 +453,7 @@ creamos las propiedades String contadorAPS y FPS
 -en mostrar():
 --graphics.drawString(FPS y APS,x,y);
 
+26 -Creacion de Sprites en PhotoShop
+27 -Creacion de Sprites en PhotoShop II
+28 -Crear mapa como referencia 
+--Buscar sprites en alguna web en mi caso, pa
