@@ -461,3 +461,19 @@ creamos las propiedades String contadorAPS y FPS
 29 Traducir el mapa a píxeles 
 -Asignamos a cada sprite un color, que hará de id
 -Creamos una imagen de tantos pixeles como sprites tiene el mapa y traducimos esos sprites a colores
+
+30 Cargar los nuevos sprites:
+
+En Sprite:
+-añadimos propiedades a la coleccion de sprites correspondientes a los sprites de nuestra Hoja
+
+Reestructuramos el codigo, para no tener que andar haciendo 1000 clases
+**Eliminamos la clase CuadroAsfalto y CuadroVacio
+
+En Cuadro:
+**quitamos el abstract y la hacemos una clase normal
+-añadimos propiedades a la coleccion de cuadros correspondientes a los nuevos cuadros
+
+En Mapa:
+-en obtenerCuadro:
+--añadimos al switch todos los cases correspondientea a los cuadros disponibles

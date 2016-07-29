@@ -34,7 +34,7 @@ public class MapaGenerado extends Mapa{
     protected void generarMapa(){
         for(int y = 0; y < this.alto; y++){
             for(int x = 0; x < this.ancho; x++){
-                this.cuadros[x + y * ancho] = aleatorio.nextInt(3);
+                this.cuadros[x + y * ancho] = aleatorio.nextInt(13);
             }
         }
     }
