@@ -19,6 +19,7 @@ public abstract class Mapa {
     protected int ancho;
 
     protected int[] cuadros;
+    protected Cuadro[] cuadrosCatalogo;
 
     public Mapa(int ancho, int alto) {
         this.ancho = ancho;
@@ -26,12 +27,13 @@ public abstract class Mapa {
 
         this.cuadros = new int[ancho * alto];
 
-        this.generarMapa();
+        generarMapa();
 
     }
 
     public Mapa(String ruta) {
-        this.generarMapa(ruta);
+        cargarMapa(ruta);
+        generarMapa();
 
     }
 
@@ -39,7 +41,7 @@ public abstract class Mapa {
 
     }
 
-    private void generarMapa(String ruta) {
+    protected void cargarMapa(String ruta) {
 
     }
 
@@ -58,7 +60,12 @@ public abstract class Mapa {
 
         for (int y = n; y < s; y++) {
             for (int x = o; x < e; x++) {
-                this.obtenCuadro(x, y).mostrar(x, y, pantalla);
+                //this.obtenCuadro(x, y).mostrar(x, y, pantalla);
+                if(x < 0 || y < 0 || x >= ancho || y >= alto){
+                    Cuadro.VACIO.mostrar(x, y, pantalla);
+                }else{
+                    cuadrosCatalogo[x + y * ancho].mostrar(x, y, pantalla);
+                }
             }
         }
     }
@@ -83,7 +90,7 @@ public abstract class Mapa {
             case 5:
                 return Cuadro.PARED_PIEDRA;
             case 6:
-                return Cuadro.PARED_PIEDA_INFERIOR;
+                return Cuadro.PARED_PIEDRA_INFERIOR;
             case 7:
                 return Cuadro.PARED_PIEDRA_CARRETERA;
             case 8:

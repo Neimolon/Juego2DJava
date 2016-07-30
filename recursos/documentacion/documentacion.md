@@ -477,3 +477,29 @@ En Cuadro:
 En Mapa:
 -en obtenerCuadro:
 --añadimos al switch todos los cases correspondientea a los cuadros disponibles
+
+31 Cargar Mapas desde imagenes
+
+En Mapa:
+-creamos propiedad Cuadro cuadrosCatalogo
+-en constructor(string):
+--cambiamos new MapaGenerado por MapaCargado
+-en mostrar:
+--dejamos de usar el metodo obtener cuadros que nos devolvia un cuadro aleatorio
+--hacemos una comprobacion de que estemos dentro de los limites del objeto pantalla y 
+--si estamos fuera pintamos un cuadro vacio, sino mostraremos el cuadro correspondiente a la posicion
+
+creamos clase MapaCargado extends Mapa:
+-creamos propiedad int[] pixeles (para cargar el mapa de pixeles)
+-creamos constructor(ruta):
+
+-sobreescribimos el metodo cargarMapa(string):
+--leemos la imagen del mapa de pixeles 
+--iniciamos alto y ancho
+--iniciamos cuadroCatalogo
+--iniciamos pixeles
+--cargamos en el array de pixeles la imagen
+
+-sobreescribimos el metodo generarMapa(string):
+--recorremos el array de pixeles del mapa
+---usamos switch case que traduzca el codigo de color del pixel al cuadro correspondiente y lo diga que se dibuje

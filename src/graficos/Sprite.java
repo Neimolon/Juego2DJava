@@ -22,7 +22,7 @@ public final class Sprite {
     public static final Sprite CENTRO_CARRETERA = new Sprite(32, 3, 0, HojaSprites.desierto);
     public static final Sprite ESQUINA_CARRETERA = new Sprite(32, 4, 0, HojaSprites.desierto);
     public static final Sprite PARED_PIEDRA = new Sprite(32, 5, 0, HojaSprites.desierto);
-    public static final Sprite PARED_PIEDA_INFERIOR = new Sprite(32, 6, 0, HojaSprites.desierto);
+    public static final Sprite PARED_PIEDRA_INFERIOR = new Sprite(32, 6, 0, HojaSprites.desierto);
     public static final Sprite PARED_PIEDRA_CARRETERA = new Sprite(32, 6, 1, HojaSprites.desierto);
     public static final Sprite PUERTA_SUPERIOR_IZQUIERDA = new Sprite(32, 7, 0, HojaSprites.desierto);
     public static final Sprite PUERTA_SUPERIOR_CENTRAL = new Sprite(32, 8, 0, HojaSprites.desierto);
