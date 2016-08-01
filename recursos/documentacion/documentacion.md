@@ -603,3 +603,12 @@ Crear hoja sprites personaje front,back y lados y efectos de movimiento
 
 
 
+43 Entes, criaturas y el jugador
+Explicaciones sobre en que consisten los Entes,Criaturas y jugador
+
+crear paquete entes
+crear clase abstrarcta Ente
+
+crear paquete entes.criaturas
+crear clase abstracta Criatura extends Ente
+crear clase Jugador extends Criatura
