@@ -583,3 +583,23 @@ En MapaCargado:
 anadimos en el metodo generarMapa los casos correspondientes a los nuevos sprites
 
 
+***
+
+38 Capas de dibujo 
+(Explicaciones conceptuales)
+En este episodio os explicaré algunas particularidades sobre las capas de dibujo.
+Normalmente necesitaremos dibujar todos los elementos en varias pasadas y capas, ya que algunas cosas van debajo (o encima) de otras.
+Por eso es importante pensar cuidadosamente el orden en que debemos dibujar, ya que lo primero que dibujemos será lo que esté debajo de lo demás y así sucesivamente.
+
+***
+
+39 Personaje pixel art I 
+40 Personaje pixel art II 
+41 Personaje pixel art III 
+42 Personaje pixel art IV 
+En este episodio dibujaremos nuestro personaje para el juego usando el estilo pixel art.
+Crear hoja sprites personaje front,back y lados y efectos de movimiento
+
+
+
+

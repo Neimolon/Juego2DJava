@@ -123,7 +123,7 @@ public final class Sprite {
                 rotarI90(pixelesTemporales);
                 break;
             case ROTAR_90_IZDA_INVERTIR_Y:
-                rotarI90InvertirI(pixelesTemporales);
+                rotarI90InvertirY(pixelesTemporales);
                 break;
             case ROTAR_90_DCHA_INVERTIR_Y:
                 rotarD90InvertirY(pixelesTemporales);
@@ -203,7 +203,7 @@ public final class Sprite {
     }
 
     //version 6
-    private void rotarI90InvertirI(int[] pixelesTemporales) {
+    private void rotarI90InvertirY(int[] pixelesTemporales) {
         int i = 0;
         
         for (x = 0; x < lado; x++) {

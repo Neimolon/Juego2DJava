@@ -17,6 +17,7 @@ import graficos.Pantalla;
 import java.awt.Color;
 import mapa.Mapa;
 import mapa.MapaCargado;
+import mapa.cuadro.Cuadro;
 
 public class Juego extends Canvas implements Runnable {
 
@@ -35,6 +36,9 @@ public class Juego extends Canvas implements Runnable {
     private static Teclado teclado;
     private static Pantalla pantalla;
     private static Mapa mapa;
+    
+    private static BufferStrategy estrategia;
+    private static Graphics g;
 
     private static BufferedImage imagen = new BufferedImage(ANCHO, ALTO, BufferedImage.TYPE_INT_RGB);
     private static int[] pixeles = ((DataBufferInt) imagen.getRaster().getDataBuffer()).getData();
@@ -112,7 +116,7 @@ public class Juego extends Canvas implements Runnable {
     }
 
     private void mostrar() {
-        BufferStrategy estrategia = getBufferStrategy();
+        estrategia = getBufferStrategy();
 
         if (estrategia == null) {
             createBufferStrategy(3);
@@ -124,7 +128,7 @@ public class Juego extends Canvas implements Runnable {
 
         System.arraycopy(pantalla.pixeles, 0, this.pixeles, 0, this.pixeles.length);
 
-        Graphics g = estrategia.getDrawGraphics();
+        g = estrategia.getDrawGraphics();
 
         g.drawImage(imagen, 0, 0, getWidth(), getHeight(), null);
         g.setColor(Color.white);
