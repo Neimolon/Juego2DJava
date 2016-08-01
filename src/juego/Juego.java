@@ -119,7 +119,7 @@ public class Juego extends Canvas implements Runnable {
             return;
         }
 
-        pantalla.limpiar();
+        //pantalla.limpiar();
         mapa.mostrar(this.x, this.y, pantalla);
 
         System.arraycopy(pantalla.pixeles, 0, this.pixeles, 0, this.pixeles.length);

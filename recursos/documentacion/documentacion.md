@@ -503,3 +503,26 @@ creamos clase MapaCargado extends Mapa:
 -sobreescribimos el metodo generarMapa(string):
 --recorremos el array de pixeles del mapa
 ---usamos switch case que traduzca el codigo de color del pixel al cuadro correspondiente y lo diga que se dibuje
+
+32 Ocho Sprites en uno
+Explicaciones de como rotar y voltear sprites en los bucles anidados
+
+***
+
+33 Cargar sprites manipulados I 
+En este episodio veremos la estructura básica necesaria en la clase Sprite para comenzar a cargar sprites manipulados.
+
+En Sprite:
+-constructor:
+--añadimos el parametro version
+--reemplazamos el blucle de carga por el metodo cargarSprite()
+
+-creamos metodo cargaNormal():
+--movemos el bucle anidado del constructor a este metodo
+
+--creamos el metodo cargarSprite(version){
+-si version el 0 llamamos a cargaNormal sino (por desarrollar) llamaremos al metodo correspondiente
+
+-modificamos las instancias de los sprites para adaptarlas al nuevo constructor
+
+}
