@@ -565,3 +565,21 @@ rellenamos los metodos para manipular sprites
 
 -rotarD90InvertirY(pixelesTemporales):
 --eje x pasa a ser el blucle externo y se recorren ambos de final a inicio
+
+***
+
+37 Rellenando el mapa 
+
+En este episodio al fin eliminaremos los huecos negros de nuestro mapa gracias al nuevo constructor que tenemos para cargar sprites manipulados.
+
+En sprite:
+creo propiedades constantes para cada variante de manupulacion de sprites;
+creamos los sprites modificados
+
+En cuadro:
+añadimos a la coleccion de cuadros los nuevos sprites
+
+En MapaCargado:
+anadimos en el metodo generarMapa los casos correspondientes a los nuevos sprites
+
+
