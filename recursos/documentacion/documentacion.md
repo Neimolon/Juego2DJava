@@ -526,3 +526,17 @@ En Sprite:
 -modificamos las instancias de los sprites para adaptarlas al nuevo constructor
 
 }
+
+***
+
+34 Cargar sprites manipulados II 
+En este episodio continuamos escribiendo código en la clase Sprite
+
+En Sprite
+-creamos metodo cargaManipulada(version)
+--switch case de 1 a 7, en el que se llama al metodo correspondiente a cada version del sprite 
+
+-creamos metodos para manipular sprites: (invertirX,invertirY,invertirXX,rotarD90,rotarI90,rotarI90InvertirY,rotarD90InvertirY) que reciben array pixelesTemporales
+
+
+***
