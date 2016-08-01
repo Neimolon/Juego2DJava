@@ -122,26 +122,87 @@ public final class Sprite {
         return pixelesTemporales;
     }
 
-    
     //version 1
     private void invertirX(int[] pixelesTemporales) {
+        int i = 0;
+
+        for (int y = 0; y < lado; y++) {
+            for (x = lado - 1; x >= 0; x--) {
+                pixeles[i] = pixelesTemporales[x + y * lado];
+                i++;
+            }
+        }
+
     }
+
     //version 2
     private void invertirY(int[] pixelesTemporales) {
+        int i = 0;
+
+        for (int y = lado; y >= 0; y--) {
+            for (x = 0; x > lado; x++) {
+                pixeles[i] = pixelesTemporales[x + y * lado];
+                i++;
+            }
+        }
+        
     }
+
     //version 3
     private void invertirXY(int[] pixelesTemporales) {
+        for (int i = 0; i < pixeles.length; i++) {
+            pixeles[i] = pixelesTemporales[pixelesTemporales.length -1 -i];
+            i++;
+        }    
     }
+
     //version 4
-    private void rotarI90(int[] pixelesTemporales) {
+    private void rotarI90(int[] pixelesTemporales) {      
+        int i = 0;       
+        for (x = lado - 1; x >= 0; x--) {
+            for (int y = 0; y < lado; y++) {      
+                pixeles[i] = pixelesTemporales[x + y * lado];
+                i++;
+            }
+        }
+        
     }
+
     //version 5
     private void rotarD90(int[] pixelesTemporales) {
+        int i = 0;
+        for (x = 0; x <  lado; x++) {
+            for (int y = lado - 1; y >= 0; y--) {      
+                pixeles[i] = pixelesTemporales[x + y * lado];
+                i++;
+            }
+        }
     }
+
     //version 6
-    private void rotarI90InvertirI(int[] pixelesTemporales) {}
-    
+    private void rotarI90InvertirI(int[] pixelesTemporales) {
+        int i = 0;
+        
+        for (x = 0; x < lado; x++) {
+            for (int y = 0; y < lado; y++) {      
+                pixeles[i] = pixelesTemporales[x + y * lado];
+                i++;
+            }
+        }
+        
+    }
+
     //version 7
-    private void rotarD90InvertirY(int[] pixelesTemporales) {}
+    private void rotarD90InvertirY(int[] pixelesTemporales) {
+        int i = 0;
+        
+        for (x = lado -1; x >= 0; x--) {
+            for (int y = lado - 1; y >= 0 ; y--) {      
+                pixeles[i] = pixelesTemporales[x + y * lado];
+                i++;
+            }
+        }
+        
+    }
 
 }

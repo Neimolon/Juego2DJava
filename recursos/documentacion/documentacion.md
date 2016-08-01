@@ -540,3 +540,28 @@ En Sprite
 
 
 ***
+
+35 Cargar sprites manipulados III  + 36 Cargar sprites manipulados IV
+rellenamos los metodos para manipular sprites
+
+-invertirX(pixelesTemporales):
+--bucle anidado x,y en el que se recorre la x de posicion final a posicion inicial
+
+-invertirY(pixelesTemporales):
+--bucle anidado x,y en el que se recorre la y de posicion final a posicion inicial
+
+-invertirXY(pixelesTemporales):
+--recorrempos todo el array de pixeles y asignamos la lectura de forma invertida
+
+-rotarI90(pixelesTemporales):
+--eje x pasa a ser el blucle externo y se recorre x de final a inicio
+
+-rotarD90(pixelesTemporales):
+--eje x pasa a ser el blucle externo y se recorre y de final a inicio
+
+
+-rotarI90InvertirY(pixelesTemporales):
+--eje x pasa a ser el blucle externo y se recorren ambos de inicio a final
+
+-rotarD90InvertirY(pixelesTemporales):
+--eje x pasa a ser el blucle externo y se recorren ambos de final a inicio
