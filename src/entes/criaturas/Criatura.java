@@ -48,4 +48,8 @@ public abstract class Criatura extends Ente{
         return false;
     }
     
+    public Sprite obtenSprite(){
+        return this.sprite;
+    }
+    
 }

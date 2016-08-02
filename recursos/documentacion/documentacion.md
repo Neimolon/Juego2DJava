@@ -679,3 +679,39 @@ en Jugador:
 -en mostrar:
 --cambiamos la llamada mapa.mostrar(x,y, pantalla) por (jugador.obtenerPosicionX(),jugador.obtenerPosicionY(), pantalla);
 --Añadimos dibujado de strings para la posicion X e Y del Jugador para asi tenerla monitorizada
+
+***
+
+47 - Mostrando el Sprite de Jugador
+
+-copiamos la hoja de sprites del jugador en recursos/texturas
+
+en HojaSprites:
+-añadimos a la colleccion de Hojas de sprites la hoja jugador y la instanciamos
+
+en Sprite:
+-Creamos todos los sprites correspondientes a la nueva hoja de sprites
+
+en Jugador:
+
+-modificamos los constructores para que reciban (teclado,sprite) y (teclado,sprite, posicionx e Y)
+
+-creamos el metodo mostrar(pantalla):
+--pantalla.mostrarJugador(x,y,this)
+
+en Criatura:
+-hacemos un getter para criatura
+
+en Juego:
+-arreglamos cuando se instancia Jugador para que funcione con su nuevo constructor
+
+-en mostrar()
+--añadimos llamada a jugador.mostrar(pantalla,posicionOrigenX,posicionOrigenY)
+--quitamos el cuadrado que referenciaba el centro de la pantalla
+--cambiamos la llamada mapa.mostrar() y le pasamos la posicion del jugador - ancho de la pantalla/2 - tamaño sprite jugador / 2 (Esto es temporal) 
+
+en Pantalla:
+-creamos el metodo mostrarJugador(compensacionX e Y,Jugador)
+--el metodo es identico a mostrar cuadro pero recorriendo el sprite del jugador
+
+***

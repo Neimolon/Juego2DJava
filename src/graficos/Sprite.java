@@ -24,7 +24,25 @@ public final class Sprite {
     public static final int ROTAR_90_IZDA_INVERTIR_Y = 6;
     public static final int ROTAR_90_DCHA_INVERTIR_Y = 7;
 
-    /* Coleccion Sprites */
+    /* Coleccion Sprites del Mapa jugador*/
+    public static final Sprite JUGADOR_ABAJO_0 = new Sprite(32, 0, 0, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_ABAJO_1 = new Sprite(32, 0, 1, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_ABAJO_2 = new Sprite(32, 0, 1, CLONAR, HojaSprites.jugador);
+    
+    public static final Sprite JUGADOR_ARRIBA_0 = new Sprite(32, 1, 0, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_ARRIBA_1 = new Sprite(32, 1, 1, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_ARRIBA_2 = new Sprite(32, 1, 2, CLONAR, HojaSprites.jugador);
+    
+    public static final Sprite JUGADOR_DCHA_0 = new Sprite(32, 2, 0, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_DCHA_1 = new Sprite(32, 2, 1, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_DCHA_2 = new Sprite(32, 2, 2, CLONAR, HojaSprites.jugador);
+    
+    public static final Sprite JUGADOR_IZDA_0 = new Sprite(32, 3, 0, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_IZDA_1 = new Sprite(32, 3, 1, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_IZDA_2 = new Sprite(32, 3, 2, CLONAR, HojaSprites.jugador);
+    /* Fin de la coleccion */
+
+    /* Coleccion Sprites del Mapa desierto*/
     public static final Sprite VACIO = new Sprite(32, 0x000000);
     public static final Sprite ASFALTO = new Sprite(32, 0, 0, CLONAR, HojaSprites.desierto);
     public static final Sprite ARENA = new Sprite(32, 1, 0, CLONAR, HojaSprites.desierto);

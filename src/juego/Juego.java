@@ -15,6 +15,7 @@ import javax.swing.JFrame;
 import control.Teclado;
 import entes.criaturas.Jugador;
 import graficos.Pantalla;
+import graficos.Sprite;
 import java.awt.Color;
 import mapa.Mapa;
 import mapa.MapaCargado;
@@ -38,7 +39,7 @@ public class Juego extends Canvas implements Runnable {
     private static Pantalla pantalla;
     private static Mapa mapa;
     private static Jugador jugador;
-    
+
     private static BufferStrategy estrategia;
     private static Graphics g;
 
@@ -56,9 +57,9 @@ public class Juego extends Canvas implements Runnable {
 
         teclado = new Teclado();
         addKeyListener(teclado);
-        
+
         mapa = new MapaCargado("/mapas/desierto.png");
-        jugador = new Jugador(teclado);
+        jugador = new Jugador(teclado, Sprite.JUGADOR_ARRIBA_0,225,225);
 
         ventana = new JFrame(NOMBRE);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -96,7 +97,7 @@ public class Juego extends Canvas implements Runnable {
 
     private void actualizar() {
         this.teclado.actualizar();
-        
+
         jugador.actualizar();
 
         if (teclado.salir) {
@@ -115,7 +116,11 @@ public class Juego extends Canvas implements Runnable {
         }
 
         //pantalla.limpiar();
-        mapa.mostrar(jugador.obtenerPosicionX(),jugador.obtenerPosicionY(), pantalla);
+        mapa.mostrar(jugador.obtenerPosicionX() - pantalla.obtenAncho() / 2 + jugador.obtenSprite().obtenLado() / 2, 
+                     jugador.obtenerPosicionY() - pantalla.obtenAlto() / 2 + jugador.obtenSprite().obtenLado() / 2,
+                     pantalla);
+        
+        jugador.mostrar(pantalla);
 
         System.arraycopy(pantalla.pixeles, 0, this.pixeles, 0, this.pixeles.length);
 
@@ -123,11 +128,10 @@ public class Juego extends Canvas implements Runnable {
 
         g.drawImage(imagen, 0, 0, getWidth(), getHeight(), null);
         g.setColor(Color.white);
-        g.fillRect((ANCHO - 32) >> 1, (ALTO - 32) >> 1, 32, 32);
         g.drawString(CONTADOR_APS, 10, 20);
         g.drawString(CONTADOR_FPS, 10, 35);
-        g.drawString("X: "+jugador.obtenerPosicionX(), 10, 50);
-        g.drawString("Y: "+jugador.obtenerPosicionY(), 10, 65);
+        g.drawString("X: " + jugador.obtenerPosicionX(), 10, 50);
+        g.drawString("Y: " + jugador.obtenerPosicionY(), 10, 65);
         g.dispose();
 
         estrategia.show();
