@@ -640,3 +640,22 @@ en Criatura:
 -creamos metodo enColision(por desarrollar): futuro motor de colisiones
     
 ***
+
+45 - clase Jugador
+
+En Jugador:
+-creamos propiedad teclado
+
+-creamos constructor Jugador(teclado):
+--inicializa teclado
+
+-creamos constructor Jugador(teclado,posX,posY):
+--inicializa teclado
+--asignamos las posiciones de salida del Jugador
+
+-creamos metodo actualizar():
+--creamos variables para desplazamientoX e Y
+--comprobamos si se pulsa alguna tecla de movimiento en el teclado y incrementamos/decrementamos el desplazamiento correspondiente
+--comprobamos si se ha modificado el desplazamiento y llamamos al metodo mover pasandole el nuevo desplazamiento
+
+***
