@@ -612,3 +612,31 @@ crear clase abstrarcta Ente
 crear paquete entes.criaturas
 crear clase abstracta Criatura extends Ente
 crear clase Jugador extends Criatura
+
+***
+
+44 - Desarrollando Ente y Criatura:
+
+en Ente:
+-creamos propiedades x e y: para la posicion
+-creamos propiedad boolean eliminado: para saber el estado del ente
+-creamos la propiedad Mapa: para poder pintar el sprite en el mapa
+
+-creamos metodo actualizar()
+-creamos metodo mostrar()
+-creamos getter y setter para x e y (en setter no se asiga el parametro, se suma)    
+
+en Criatura:
+
+-creamos propiedad sprite:
+-creamos propiedad direccion : nos indica la posicion a la que estará mirando el sprite de la criatura
+-creamos propiedad enMovimiento:
+
+-sobreescribimos metodo actualizar;
+-sobreescribimos metodo mostrar;
+-creamos metodo mover(desplazamientoX,desplazamientoY):
+--si el desplazamiento X e Y es positivo o negativo se asigna a direccion un char representativo de la cardinalidad correspondiente
+--si no está eliminado se modifica la posicion acorde al desplazamiento
+-creamos metodo enColision(por desarrollar): futuro motor de colisiones
+    
+***
