@@ -715,3 +715,16 @@ en Pantalla:
 --el metodo es identico a mostrar cuadro pero recorriendo el sprite del jugador
 
 ***
+
+48 - Dirección jugador:
+
+En Pantalla:
+-en mostrarJugador:
+--añadimos un if que evita pintar los pixeles del croma de la hoja de sprites del jugador
+
+En Jugador:
+-en actualiar:
+--dentro del if de mover añadimos un switch case que cambia el sprite del jugador según la direccion en la que se seleccione en el teclado
+
+***
+

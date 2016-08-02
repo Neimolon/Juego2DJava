@@ -75,7 +75,13 @@ public final class Pantalla {
                     posicionX = 0;
                 }
 
-                pixeles[posicionX + posicionY * this.ancho] = jugador.obtenSprite().pixeles[x + y * jugador.obtenSprite().obtenLado()];
+                //pixeles[posicionX + posicionY * this.ancho] = jugador.obtenSprite().pixeles[x + y * jugador.obtenSprite().obtenLado()];
+                
+                int colorPixelJugador = jugador.obtenSprite().pixeles[x + y * jugador.obtenSprite().obtenLado()];
+                
+                if(colorPixelJugador != 0xFFFF00FF){
+                    pixeles[posicionX + posicionY * this.ancho] = colorPixelJugador;
+                }
 
             }
         }

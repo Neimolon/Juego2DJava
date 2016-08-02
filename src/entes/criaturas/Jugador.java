@@ -15,7 +15,7 @@ public class Jugador extends Criatura {
     public Jugador(Teclado teclado, Sprite sprite) {
         this.teclado = teclado;
         this.sprite = sprite;
-        
+
     }
 
     public Jugador(Teclado teclado, Sprite sprite, int posicionX, int posicionY) {
@@ -41,13 +41,31 @@ public class Jugador extends Criatura {
         if (teclado.izquierda) {
             desplazamientoX--;
         }
-        
-        if(desplazamientoX != 0 || desplazamientoY != 0){
-            mover(desplazamientoX,desplazamientoY);
+
+        if (desplazamientoX != 0 || desplazamientoY != 0) {
+            switch (direccion) {
+                case 'n':
+                    sprite = Sprite.JUGADOR_ARRIBA_0;
+                    break;
+                case 's':
+                    sprite = Sprite.JUGADOR_ABAJO_0;
+                    break;
+                case 'e':
+                    sprite = Sprite.JUGADOR_DCHA_0;
+                    break;
+                case 'o':
+                    sprite = Sprite.JUGADOR_IZDA_0;
+                    break;
+                default:
+                    sprite = Sprite.JUGADOR_ARRIBA_0;
+
+            }
+
+            mover(desplazamientoX, desplazamientoY);
         }
     }
-    
-    public void mostrar(Pantalla pantalla){
+
+    public void mostrar(Pantalla pantalla) {
         pantalla.mostrarJugador(x, y, this);
     }
 
