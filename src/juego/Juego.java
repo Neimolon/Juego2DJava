@@ -24,8 +24,8 @@ import mapa.cuadro.Cuadro;
 public class Juego extends Canvas implements Runnable {
 
     private static final long serialVersionUID = 1L;
-    private static final int ANCHO = 800;
-    private static final int ALTO = 600;
+    private static final int ANCHO = 480;
+    private static final int ALTO = 360;
     private static final String NOMBRE = "Juego";
 
     private String CONTADOR_APS = "";

@@ -728,3 +728,34 @@ En Jugador:
 
 ***
 
+49 Animación del jugador
+
+En jugador:
+
+-creamos propiedad int animacion;
+
+-en actualizar:
+--comprobamos que animacion no desborde y la incrementamos en cada vuelta
+--movemos el switch de movimiento del if de movimiento al final del metodo
+--en el if de movimiento seteamos la variable enMovimiento a true o false segun corresponda
+--en cada case añadimos la siguiente operacion:
+        case 'e':
+         sprite = Sprite.JUGADOR_DCHA_0;
+         if (enMovimiento) {
+             if (animacion % 30 > 15) {
+                 sprite = Sprite.JUGADOR_DCHA_1;
+             } else {
+                 sprite = Sprite.JUGADOR_DCHA_2;
+             }
+         }
+
+Explicacion:
+si está en movimiento debemos alternar las imagenes de la animacion, en animacion se capturan los 
+frames en los que el jugador debio moverse, se divide entre un numero de frames suficientes para que 
+su animacion tenga una velocidad acorde y el resto debe estar en un rango igual al total de velocidad 
+de la animacion entre el numero de sprites que la componen.Cada uno de esos rangos debe estar en un if o en un case
+
+En nuestro caso cada 30 frames con movimiento activo y para dos animaciones da un resto de 15, que corresponden a dos 
+rangos de 15 frames que se alternan y asignan la animacion intercalandola
+ 
+

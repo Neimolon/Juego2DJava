@@ -11,6 +11,7 @@ import graficos.Sprite;
 public class Jugador extends Criatura {
 
     private Teclado teclado;
+    private int animacion;
 
     public Jugador(Teclado teclado, Sprite sprite) {
         this.teclado = teclado;
@@ -29,6 +30,12 @@ public class Jugador extends Criatura {
         int desplazamientoX = 0;
         int desplazamientoY = 0;
 
+        if (animacion < 32767) {
+            animacion++;
+        } else {
+            animacion = 0;
+        }
+
         if (teclado.arriba) {
             desplazamientoY--;
         }
@@ -43,25 +50,55 @@ public class Jugador extends Criatura {
         }
 
         if (desplazamientoX != 0 || desplazamientoY != 0) {
-            switch (direccion) {
-                case 'n':
-                    sprite = Sprite.JUGADOR_ARRIBA_0;
-                    break;
-                case 's':
-                    sprite = Sprite.JUGADOR_ABAJO_0;
-                    break;
-                case 'e':
-                    sprite = Sprite.JUGADOR_DCHA_0;
-                    break;
-                case 'o':
-                    sprite = Sprite.JUGADOR_IZDA_0;
-                    break;
-                default:
-                    sprite = Sprite.JUGADOR_ARRIBA_0;
-
-            }
 
             mover(desplazamientoX, desplazamientoY);
+            enMovimiento = true;
+
+        } else {
+            enMovimiento = false;
+        }
+
+        switch (direccion) {
+            case 'n':
+                sprite = Sprite.JUGADOR_ARRIBA_0;
+                if (enMovimiento) {
+                    if (animacion % 30 > 15) {
+                        sprite = Sprite.JUGADOR_ARRIBA_1;
+                    } else {
+                        sprite = Sprite.JUGADOR_ARRIBA_2;
+                    }
+                }
+                break;
+            case 's':
+                sprite = Sprite.JUGADOR_ABAJO_0;
+                if (enMovimiento) {
+                    if (animacion % 30 > 15) {
+                        sprite = Sprite.JUGADOR_ABAJO_1;
+                    } else {
+                        sprite = Sprite.JUGADOR_ABAJO_2;
+                    }
+                }
+                break;
+            case 'e':
+                sprite = Sprite.JUGADOR_DCHA_0;
+                if (enMovimiento) {
+                    if (animacion % 30 > 15) {
+                        sprite = Sprite.JUGADOR_DCHA_1;
+                    } else {
+                        sprite = Sprite.JUGADOR_DCHA_2;
+                    }
+                }
+                break;
+            case 'o':
+                sprite = Sprite.JUGADOR_IZDA_0;
+                if (enMovimiento) {
+                    if (animacion % 30 > 15) {
+                        sprite = Sprite.JUGADOR_IZDA_1;
+                    } else {
+                        sprite = Sprite.JUGADOR_IZDA_2;
+                    }
+                }
+                break;
         }
     }
 

@@ -27,7 +27,7 @@ public final class Sprite {
     /* Coleccion Sprites del Mapa jugador*/
     public static final Sprite JUGADOR_ABAJO_0 = new Sprite(32, 0, 0, CLONAR, HojaSprites.jugador);
     public static final Sprite JUGADOR_ABAJO_1 = new Sprite(32, 0, 1, CLONAR, HojaSprites.jugador);
-    public static final Sprite JUGADOR_ABAJO_2 = new Sprite(32, 0, 1, CLONAR, HojaSprites.jugador);
+    public static final Sprite JUGADOR_ABAJO_2 = new Sprite(32, 0, 2, CLONAR, HojaSprites.jugador);
     
     public static final Sprite JUGADOR_ARRIBA_0 = new Sprite(32, 1, 0, CLONAR, HojaSprites.jugador);
     public static final Sprite JUGADOR_ARRIBA_1 = new Sprite(32, 1, 1, CLONAR, HojaSprites.jugador);
