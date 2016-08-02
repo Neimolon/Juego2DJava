@@ -31,11 +31,11 @@ public abstract class Ente {
     }
     
     public void modificarPosicionX(int desplazamientoX){
-        this.x += x;
+        this.x += desplazamientoX;
     }
     
     public void modificarPosicionY(int desplazamientoY){
-        this.y += y;
+        this.y += desplazamientoY;
     }
     
     

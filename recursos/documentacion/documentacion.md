@@ -659,3 +659,23 @@ En Jugador:
 --comprobamos si se ha modificado el desplazamiento y llamamos al metodo mover pasandole el nuevo desplazamiento
 
 ***
+
+46 - Conectando al Jugador
+
+Hasta ahora el movimiento se conseguía a través de incrementar/decrementar las propiedades x,y de la clase juego a traves del keyListener y desplazar el mapa.
+A partir de ahora, la posicion del mapa se calculará a partir de las propiedades x,y de la superclase Ente de Jugador.
+
+en Jugador:
+-Eliminamos propiedades x e y
+-Creamos propiedad jugador
+
+-en constructor:
+--instaciamos jugador(teclado) : Importante instanciar despues de teclado o no va a funcionar
+
+-en actualizar:
+--eliminamos la escalera de ifs que modificaban x,y de la clase Jugador
+--insertamos llamada a jugador.actualizar();
+
+-en mostrar:
+--cambiamos la llamada mapa.mostrar(x,y, pantalla) por (jugador.obtenerPosicionX(),jugador.obtenerPosicionY(), pantalla);
+--Añadimos dibujado de strings para la posicion X e Y del Jugador para asi tenerla monitorizada

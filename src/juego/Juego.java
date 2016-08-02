@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import control.Teclado;
+import entes.criaturas.Jugador;
 import graficos.Pantalla;
 import java.awt.Color;
 import mapa.Mapa;
@@ -36,6 +37,7 @@ public class Juego extends Canvas implements Runnable {
     private static Teclado teclado;
     private static Pantalla pantalla;
     private static Mapa mapa;
+    private static Jugador jugador;
     
     private static BufferStrategy estrategia;
     private static Graphics g;
@@ -46,18 +48,17 @@ public class Juego extends Canvas implements Runnable {
 
     public static int aps = 0;
     private static int fps = 0;
-    public static int x = 0;
-    public static int y = 0;
 
     private Juego() {
         setPreferredSize(new Dimension(ANCHO, ALTO));
 
         pantalla = new Pantalla(ANCHO, ALTO);
 
-        mapa = new MapaCargado("/mapas/desierto.png");
-
         teclado = new Teclado();
         addKeyListener(teclado);
+        
+        mapa = new MapaCargado("/mapas/desierto.png");
+        jugador = new Jugador(teclado);
 
         ventana = new JFrame(NOMBRE);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -95,19 +96,9 @@ public class Juego extends Canvas implements Runnable {
 
     private void actualizar() {
         this.teclado.actualizar();
+        
+        jugador.actualizar();
 
-        if (teclado.arriba) {
-            y--;
-        }
-        if (teclado.abajo) {
-            y++;
-        }
-        if (teclado.izquierda) {
-            x--;
-        }
-        if (teclado.derecha) {
-            x++;
-        }
         if (teclado.salir) {
             System.exit(0);
         }
@@ -124,7 +115,7 @@ public class Juego extends Canvas implements Runnable {
         }
 
         //pantalla.limpiar();
-        mapa.mostrar(this.x, this.y, pantalla);
+        mapa.mostrar(jugador.obtenerPosicionX(),jugador.obtenerPosicionY(), pantalla);
 
         System.arraycopy(pantalla.pixeles, 0, this.pixeles, 0, this.pixeles.length);
 
@@ -135,6 +126,8 @@ public class Juego extends Canvas implements Runnable {
         g.fillRect((ANCHO - 32) >> 1, (ALTO - 32) >> 1, 32, 32);
         g.drawString(CONTADOR_APS, 10, 20);
         g.drawString(CONTADOR_FPS, 10, 35);
+        g.drawString("X: "+jugador.obtenerPosicionX(), 10, 50);
+        g.drawString("Y: "+jugador.obtenerPosicionY(), 10, 65);
         g.dispose();
 
         estrategia.show();

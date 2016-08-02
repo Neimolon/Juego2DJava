@@ -15,9 +15,9 @@ public class Jugador extends Criatura {
     }
 
     public Jugador(Teclado teclado, int posicionX, int posicionY) {
-        this.teclado = teclado;
-        this.x = posicionX;
-        this.y = posicionY;
+        teclado = teclado;
+        x = posicionX;
+        y = posicionY;
     }
 
     public void actualizar() {
@@ -33,7 +33,7 @@ public class Jugador extends Criatura {
         if (teclado.derecha) {
             desplazamientoX++;
         }
-        if (teclado.arriba) {
+        if (teclado.izquierda) {
             desplazamientoX--;
         }
         
