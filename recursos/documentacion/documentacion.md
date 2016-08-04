@@ -759,3 +759,15 @@ En nuestro caso cada 30 frames con movimiento activo y para dos animaciones da u
 rangos de 15 frames que se alternan y asignan la animacion intercalandola
  
 
+***
+
+50 Andar y correr:
+
+En Jugador:
+-en mostrar: 
+--añadimos mas sprites a las animaciones para un movimiento mas realista
+--añadimos cariable velocidad de movimiento = 1 y en donde se incrementa el desplazamiento si las teclas estan pulsadas cambiamos el incremento para pasar a operar con esa variable
+--antes de los if que comprueban las teclas pulsadas, comprobamos si se pulsa la tecla correr y si está pulsada cambiamos la velocidad de movimiento por 2
+
+En Teclado:
+-añadimos nueva propiedad correr y la iniciamos
