@@ -771,3 +771,18 @@ En Jugador:
 
 En Teclado:
 -añadimos nueva propiedad correr y la iniciamos
+
+
+***
+
+51 Nuevo mapa de pruebas
+
+Paso de hacer un mapa nuevo
+
+***
+
+52 Deteccion de colisiones
+
+En Criatura:
+
+
