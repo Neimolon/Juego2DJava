@@ -35,10 +35,10 @@ public class Cuadro {
     public static final Cuadro ESQUINA_CARRETERA_ARRIBA = new Cuadro(Sprite.ESQUINA_CARRETERA_IZDA_ARRIBA);
     public static final Cuadro ESQUINA_CARRETERA_ARRIBA_DERECHA = new Cuadro(Sprite.ESQUINA_CARRETERA_DCHA_ARRIBA);
     //marcados como solidos para probar
-    public static final Cuadro PARED_PIEDRA = new Cuadro(Sprite.PARED_PIEDRA,true);
-    public static final Cuadro PARED_PIEDRA_INFERIOR = new Cuadro(Sprite.PARED_PIEDRA_INFERIOR,true);
-    public static final Cuadro PARED_PIEDRA_CARRETERA = new Cuadro(Sprite.PARED_PIEDRA_CARRETERA_IZDA,true);
-    public static final Cuadro PARED_PIEDRA_CARRETERA_INVERTIDA_X = new Cuadro(Sprite.PARED_PIEDRA_CARRETERA_DCHA,true);
+    public static final Cuadro PARED_PIEDRA = new Cuadro(Sprite.PARED_PIEDRA);
+    public static final Cuadro PARED_PIEDRA_INFERIOR = new Cuadro(Sprite.PARED_PIEDRA_INFERIOR);
+    public static final Cuadro PARED_PIEDRA_CARRETERA = new Cuadro(Sprite.PARED_PIEDRA_CARRETERA_IZDA);
+    public static final Cuadro PARED_PIEDRA_CARRETERA_INVERTIDA_X = new Cuadro(Sprite.PARED_PIEDRA_CARRETERA_DCHA);
     public static final Cuadro PUERTA_SUPERIOR_IZQUIERDA = new Cuadro(Sprite.PUERTA_SUPERIOR_IZQUIERDA);
     public static final Cuadro PUERTA_SUPERIOR_DERECHA = new Cuadro(Sprite.PUERTA_SUPERIOR_DERECHA);
     public static final Cuadro PUERTA_SUPERIOR_CENTRAL = new Cuadro(Sprite.PUERTA_SUPERIOR_CENTRAL);
@@ -69,6 +69,6 @@ public class Cuadro {
     }
 
     public boolean esSolido() {
-        return this.solido;
+        return solido;
     }
 }

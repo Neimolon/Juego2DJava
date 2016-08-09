@@ -52,22 +52,23 @@ public abstract class Criatura extends Ente{
     private boolean enColision(int desplazamientoX, int desplazamientoY){
         boolean colision = false;
         
+        
         int posicionX = x + desplazamientoX;
         int posicionY = y + desplazamientoY;
         
-        //ajustar estos valores a mi sprite de jugador
-        int margenIzquierdo = 0;
-        int margenDerecho = 0;
-        int margenSuperior = 0;
-        int margenInferior = 0;
+        
+        //aire del sprite del jugador
+        int margenIzquierdo = -6;
+        int margenDerecho = 18;
+        int margenSuperior = -4;
+        int margenInferior = 31;
         
         int bordeIzquierdo = (posicionX + margenDerecho) / sprite.obtenLado();
         int bordeDerecho = (posicionX + margenDerecho + margenIzquierdo) / sprite.obtenLado();
         int bordeSuperior = (posicionY + margenInferior) / sprite.obtenLado();
         int bordeInferior = (posicionY + margenInferior + margenSuperior) / sprite.obtenLado();
 
-/*   FIX: Una de estas busquedas en el array de posiciones sobrepasa los limites del tamaño del cuadro de catálogo, algo hay mal
-        
+    //algo raro pasa aqui
         if(mapa.obtenerCuadroCatalogo(bordeIzquierdo + bordeSuperior * mapa.obtenerAncho()).esSolido()){
             colision = true;
         }
@@ -83,7 +84,9 @@ public abstract class Criatura extends Ente{
         if(mapa.obtenerCuadroCatalogo(bordeDerecho + bordeInferior * mapa.obtenerAncho()).esSolido()){
             colision = true;
         }
-*/
+        //Raro raro
+        
+
         return colision;
     }
     

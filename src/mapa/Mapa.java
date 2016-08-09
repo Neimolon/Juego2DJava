@@ -109,11 +109,16 @@ public abstract class Mapa {
     }
     
     public Cuadro obtenerCuadroCatalogo(int posicion){
-    
-        return cuadrosCatalogo[posicion];
+        System.out.println("Posicion Cuadros Adyacentes: "+posicion);
+
+        if(posicion > 0 && posicion < cuadrosCatalogo.length){
+            return cuadrosCatalogo[posicion];
+        }else{
+            return Cuadro.VACIO;
+        }
+        
     }
 
-    
     public int obtenerAncho(){
         return ancho;
     }

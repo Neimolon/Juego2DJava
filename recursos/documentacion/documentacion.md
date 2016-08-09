@@ -783,6 +783,40 @@ Paso de hacer un mapa nuevo
 
 52 Deteccion de colisiones
 
+Notas de este capitulo:
+-Según su codigo, cuando se comprueban los cuadros adyacentes a los que va a colisionar, si estan fuera del mapa, me tira una excepcion. Revisé
+ el codigo y además de no encontrar fallo en el código, me parece lo correcto que la lance, lo que voy a hacer es retornar un cuadro vacio cuando
+ exceda los limites del catalogo de cuadros(quiza el genere una nueva carga del catalogoCuadros segun la posicion del jugador??, si es asi sigo pensando
+ que es mejor la correccion que voy a aplicar)
+
+!!!Importante, corregido el problema de salirse del mapa, las colisiones aun no funcionan como se esperaba
+
+
 En Criatura:
+-en mover:
+--añadimos comprobacion de si no está enColison
+
+--modificamos método enColision(desplazamientoX,Y)
+---creamos boolean colision
+---creamos variables posicion para localizar la posicion x e y del jugador más el movimiento que va a realizar
+---Añadimos márgenes para evitar la colision en el "aire" que hay en el sprite del jugador
+---creamos variables para averiguar los bordes de los cuadros con los que el jugador va a entrar en colision
+---Creamos una escalera de ifs en las que se llama a los cuadros adyacentes al jugador y se pregunta si es solido, 
+   y si lo es se cambia la variable a true, de esta forma impedimos al metodo mover, ejecutar los metodos de modificarPosicion
+
+
+
+en Mapa:
+-creamos getter para obtener un cuadro de la variable cuadrosCatalogo
+-creamos getter para el ancho
+
+en Cuadro:
+-creamos propiedad solido
+-creamos getter esSolido
+-creamos constructor sobrecargado para setear solido
+-seteamos solido a false en el constructor por defecto
+-cambiamos en la coleccion de tiles el valor de solido a los que le correspondan
+
+
 
 
